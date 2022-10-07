@@ -1,4 +1,3 @@
-from ctypes import sizeof
 from Crypto.Hash import SHA1
 from Crypto.Random import get_random_bytes
 def collisionBreak():
