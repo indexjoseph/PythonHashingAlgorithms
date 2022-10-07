@@ -1,3 +1,4 @@
+from ctypes import sizeof
 from Crypto.Hash import SHA1
 from Crypto.Random import get_random_bytes
 def collisionBreak():
@@ -15,13 +16,25 @@ def collisionBreak():
             first_digest = SHA1.new(first_random_bytes).digest()
             second_digest = SHA1.new(second_random_bytes).digest()
         attempts = attempts + 1
-        print("Attempts: " + str(attempts))
-    
-    print("Attempts taken to match (6 Bytes) on Collision Free Property: " + str(attempts))
+        #print("Attempts: " + str(attempts))
+    print("didn't die")
+    print("Attempts taken to match (6 Bytes) on Collision Free Property: ", str(attempts))
 
 def oneWayBreak():
-    # Not Finished
-    pass
+    attempts = 0
+    #this hash will remain constant once generated
+    const_hash = SHA1.new(get_random_bytes(3))
+    hex = const_hash.hexdigest()
+    hex_24_bits = hex[0:5]
+    changing_hash = None
+    while changing_hash != hex_24_bits:
+        changing_hash = SHA1.new(get_random_bytes(3))
+        hex = changing_hash.hexdigest()
+        changing_hash = hex[0:5]
+        attempts += 1
+    print( "Attempts to break one way hashing: ", attempts)
+
+
 
 def main():
     oneWayBreak()
