@@ -28,4 +28,24 @@
         
         sudo apt-get upgrade appstream
 
-# HashBreakiing
+# Python - HashString.py
+
+For the HashString.py program it allows for the user to input a text file on
+the command line and given the text file, it will preform a chosen hashing algorithm.
+The optional Hashing Algorithms are MD5, SHA1, and SHA256. Once the user input a text
+file and chooses an algorithm, the program will produce a digest and prin it out to the
+user.
+
+# Usage
+ 
+python HashString.py <text> <hashing algorithm>
+  
+# Python - HashBreaker.py
+
+For the HashString.py program will attempt to break the collision free and one way properties. Afterwards
+it will print out the amount of attempts it took to break the one way property.
+user.
+
+# Usage
+ 
+python HashBreaker.py
