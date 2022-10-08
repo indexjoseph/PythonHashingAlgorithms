@@ -1,7 +1,6 @@
 """
 Author: Joseph Oladeji and Clay Farrell
-This Python Program allows for the user to input a text file on
-will attempt to break the collision free and one way properties. Afterwards
+This Python Program will attempt to break the collision free and one way properties. Afterwards
 it will print out the amount of attempts it took to break the one way property.
 user.
 """
