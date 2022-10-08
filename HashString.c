@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]){
     //uncomment the line below if running the OpenSSL  version 1.02 or less
-    //OpenSSL_add_all_algorithms();
+    OpenSSL_add_all_algorithms();
     
     EVP_MD_CTX *mdctx;
     const EVP_MD *md;
