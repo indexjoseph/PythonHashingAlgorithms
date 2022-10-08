@@ -39,6 +39,8 @@ def readFile(filename):
     return file.read() # Return the file's content
 
 def main():
+    """ Handles command line arguments and calls the corresponding methods based 
+    upon the user specifications"""
     digest_result = None
     if(len(sys.argv) == 3):
         text = readFile(sys.argv[2]).encode("utf-8")
