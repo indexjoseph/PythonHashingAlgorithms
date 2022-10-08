@@ -1,3 +1,5 @@
+# Author Joseph Oladeji and Clay Farrell
+
 from Crypto.Hash import SHA1
 from Crypto.Random import get_random_bytes
 
@@ -10,21 +12,16 @@ def collisionBreak():
     first_digest = first_hash.hexdigest()
     second_digest = second_hash.hexdigest()
    
-    while(first_digest[0:5] != second_digest[0:5]):
+    while(first_digest[0:6] != second_digest[0:6]):
         second_random_bytes = get_random_bytes(2)
         if str(initial_bytes) != str(second_random_bytes):
             second_digest = SHA1.new(second_random_bytes).hexdigest()
             # print("First Digest: " + str(first_digest[0:6]) + " Second Digest " + str(second_digest[0:6]))
         attempts+=1
-        if attempts % 100000 == 0:
-            print(attempts)
-        #print("Attempts: " + str(attempts))
-    print("didn't die")
-    print("Attempts taken to match (6 Bytes) on Collision Free Property: ", str(attempts))
+    return attempts
 
 def oneWayBreak():
     attempts = 0
-    #this hash will remain constant once generated
     const_hash = SHA1.new(get_random_bytes(3))
     hex_check = const_hash.hexdigest()
     hex_24_bits = hex_check[0:6]
@@ -39,10 +36,12 @@ def oneWayBreak():
 
 
 def main():
-    oneway_list = []
+
     sum_av = 0
     for i in range(10):
-        sum_av += oneWayBreak()
+        num = collisionBreak()
+        sum_av += num
+        print(num, end=" ")
     print("It took on average " + str(sum_av/10))
     # collisionBreak()
 
