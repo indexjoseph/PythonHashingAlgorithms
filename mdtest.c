@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
         exit(1);
     }
 
-    mdctx = EVP_MD_CTX_new(_);
+    mdctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(mdctx,md, NULL);
     EVP_DigestUpdate(mdctx, mess1, strlen(mess1) );
     EVP_DigestUpdate(mdctx, mess2, strlen(mess2) );
